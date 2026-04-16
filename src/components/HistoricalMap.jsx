@@ -3,8 +3,8 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
 export default function HistoricalMap() {
-  const mapRef = useRef<HTMLDivElement>(null);
-  const mapInstance = useRef<L.Map | null>(null);
+  const mapRef = useRef(null);
+  const mapInstance = useRef(null);
 
   useEffect(() => {
     if (!mapRef.current || mapInstance.current) return;
@@ -16,17 +16,12 @@ export default function HistoricalMap() {
       attributionControl: false,
     });
 
-    // Use a vintage/historical-style tile layer
     L.tileLayer(
       "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
-      {
-        maxZoom: 18,
-      }
+      { maxZoom: 18 }
     ).addTo(map);
 
-    // Add zoom control to bottom-right
     L.control.zoom({ position: "bottomright" }).addTo(map);
-
     mapInstance.current = map;
 
     return () => {

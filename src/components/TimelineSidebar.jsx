@@ -1,23 +1,6 @@
 import { useState } from "react";
 
-type EventType = "battle" | "massacre" | "resolution" | "other";
-
-interface TimelineEvent {
-  title: string;
-  type: EventType;
-}
-
-interface TimelineMonth {
-  month: string;
-  events: TimelineEvent[];
-}
-
-interface TimelineYear {
-  year: number;
-  months: TimelineMonth[];
-}
-
-const timelineData: TimelineYear[] = [
+const timelineData = [
   {
     year: 1947,
     months: [
@@ -87,7 +70,7 @@ const timelineData: TimelineYear[] = [
   },
 ];
 
-function getEventDotClass(type: EventType): string {
+function getEventDotClass(type) {
   switch (type) {
     case "battle":
       return "bg-timeline-event-battle";
@@ -119,7 +102,6 @@ export default function TimelineSidebar() {
 
   return (
     <aside className="absolute top-0 left-0 z-10 h-full w-72 overflow-y-auto bg-card/90 backdrop-blur-sm border-r border-border">
-      {/* Search */}
       <div className="sticky top-0 bg-card/95 backdrop-blur-sm p-3 border-b border-border">
         <div className="relative">
           <input
@@ -145,7 +127,6 @@ export default function TimelineSidebar() {
         </div>
       </div>
 
-      {/* Timeline */}
       <div className="p-3 space-y-4">
         {filtered.map((year) => (
           <div key={year.year}>

@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import Navbar from "../components/Navbar";
-import TimelineSidebar from "../components/TimelineSidebar";
-import RightToolbar from "../components/RightToolbar";
-import HistoricalMap from "../components/HistoricalMap";
+import Navbar from "../components/Navbar.jsx";
+import TimelineSidebar from "../components/TimelineSidebar.jsx";
+import RightToolbar from "../components/RightToolbar.jsx";
+import HistoricalMap from "../components/HistoricalMap.jsx";
 
 export const Route = createFileRoute("/")({
   component: TimelinePage,

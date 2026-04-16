@@ -4,7 +4,6 @@ export default function Navbar() {
   return (
     <header className="relative z-20 flex items-center justify-between px-6 py-3 bg-card/90 backdrop-blur-sm border-b border-border">
       <Link to="/" className="flex items-center gap-3">
-        {/* Logo - diamond icon */}
         <svg
           width="36"
           height="36"
