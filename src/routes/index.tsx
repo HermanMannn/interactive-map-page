@@ -1,32 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
-import Navbar from "../components/Navbar.jsx";
-import TimelineSidebar from "../components/TimelineSidebar.jsx";
-import RightToolbar from "../components/RightToolbar.jsx";
-import HistoricalMap from "../components/HistoricalMap.jsx";
+import Login from "../components/Login.jsx";
 
 export const Route = createFileRoute("/")({
-  component: TimelinePage,
+  component: Login,
   head: () => ({
     meta: [
-      { title: "Palestine Recorded — Interactive Timeline" },
+      { title: "Palestine Recorded — Login" },
       {
         name: "description",
-        content:
-          "Explore the historical timeline of Palestine with an interactive map.",
+        content: "Login to Palestine Recorded to explore the historical timeline.",
       },
     ],
   }),
 });
-
-function TimelinePage() {
-  return (
-    <div className="flex flex-col h-screen overflow-hidden">
-      <Navbar />
-      <div className="relative flex-1">
-        <HistoricalMap />
-        <TimelineSidebar />
-        <RightToolbar />
-      </div>
-    </div>
-  );
-}
