@@ -1,26 +1,32 @@
 import { createFileRoute } from "@tanstack/react-router";
+import Navbar from "../components/Navbar";
+import TimelineSidebar from "../components/TimelineSidebar";
+import RightToolbar from "../components/RightToolbar";
+import HistoricalMap from "../components/HistoricalMap";
 
 export const Route = createFileRoute("/")({
-  component: Index,
+  component: TimelinePage,
+  head: () => ({
+    meta: [
+      { title: "Palestine Recorded — Interactive Timeline" },
+      {
+        name: "description",
+        content:
+          "Explore the historical timeline of Palestine with an interactive map.",
+      },
+    ],
+  }),
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
+function TimelinePage() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="flex flex-col h-screen overflow-hidden">
+      <Navbar />
+      <div className="relative flex-1">
+        <HistoricalMap />
+        <TimelineSidebar />
+        <RightToolbar />
+      </div>
     </div>
   );
-}
-
-function Index() {
-  return <PlaceholderIndex />;
 }
