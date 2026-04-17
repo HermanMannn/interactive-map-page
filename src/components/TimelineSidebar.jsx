@@ -1,4 +1,8 @@
 import { useState } from "react";
+import { mapEvents } from "../lib/mapEvents";
+
+// Default coordinates point to Gaza until each event gets its own location.
+const GAZA = { lat: 31.5017, lng: 34.4668, zoom: 11 };
 
 const timelineData = [
   {
@@ -7,7 +11,11 @@ const timelineData = [
       {
         month: "November",
         events: [
-          { title: "UN General Assembly Resolution 181", type: "resolution" },
+          {
+            title: "UN General Assembly Resolution 181",
+            type: "resolution",
+            coords: GAZA,
+          },
         ],
       },
       {
@@ -140,9 +148,11 @@ export default function TimelineSidebar() {
                 </h3>
                 <div className="ml-1 border-l-2 border-timeline-border pl-2 space-y-0.5">
                   {month.events.map((event) => (
-                    <div
+                    <button
+                      type="button"
                       key={event.title}
-                      className="flex items-center gap-1.5 cursor-pointer hover:bg-accent/30 rounded px-1 py-0.5 transition-colors"
+                      onClick={() => mapEvents.flyTo(event.coords ?? GAZA)}
+                      className="w-full text-left flex items-center gap-1.5 cursor-pointer hover:bg-accent/30 rounded px-1 py-0.5 transition-colors"
                     >
                       <span
                         className={`h-2 w-2 rounded-full shrink-0 ${getEventDotClass(event.type)}`}
@@ -150,7 +160,7 @@ export default function TimelineSidebar() {
                       <span className="text-xs text-foreground leading-tight truncate">
                         {event.title}
                       </span>
-                    </div>
+                    </button>
                   ))}
                 </div>
               </div>

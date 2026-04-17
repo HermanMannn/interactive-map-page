@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import { mapEvents } from "../lib/mapEvents";
 
 export default function HistoricalMap() {
   const mapRef = useRef(null);
@@ -24,7 +25,12 @@ export default function HistoricalMap() {
     L.control.zoom({ position: "bottomright" }).addTo(map);
     mapInstance.current = map;
 
+    const unsub = mapEvents.subscribe(({ lat, lng, zoom }) => {
+      map.flyTo([lat, lng], zoom ?? 11, { duration: 1.5 });
+    });
+
     return () => {
+      unsub();
       map.remove();
       mapInstance.current = null;
     };
