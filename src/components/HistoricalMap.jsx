@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { mapEvents } from "../lib/mapEvents";
 
@@ -8,31 +7,41 @@ export default function HistoricalMap() {
   const mapInstance = useRef(null);
 
   useEffect(() => {
-    if (!mapRef.current || mapInstance.current) return;
+    let map;
+    let unsub;
+    let cancelled = false;
 
-    const map = L.map(mapRef.current, {
-      center: [31.9, 35.2],
-      zoom: 10,
-      zoomControl: false,
-      attributionControl: false,
-    });
+    (async () => {
+      const L = (await import("leaflet")).default;
+      if (cancelled || !mapRef.current || mapInstance.current) return;
 
-    L.tileLayer(
-      "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
-      { maxZoom: 18 }
-    ).addTo(map);
+      map = L.map(mapRef.current, {
+        center: [31.9, 35.2],
+        zoom: 10,
+        zoomControl: false,
+        attributionControl: false,
+      });
 
-    L.control.zoom({ position: "bottomright" }).addTo(map);
-    mapInstance.current = map;
+      L.tileLayer(
+        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
+        { maxZoom: 18 }
+      ).addTo(map);
 
-    const unsub = mapEvents.subscribe(({ lat, lng, zoom }) => {
-      map.flyTo([lat, lng], zoom ?? 11, { duration: 1.5 });
-    });
+      L.control.zoom({ position: "bottomright" }).addTo(map);
+      mapInstance.current = map;
+
+      unsub = mapEvents.subscribe(({ lat, lng, zoom }) => {
+        map.flyTo([lat, lng], zoom ?? 11, { duration: 1.5 });
+      });
+    })();
 
     return () => {
-      unsub();
-      map.remove();
-      mapInstance.current = null;
+      cancelled = true;
+      if (unsub) unsub();
+      if (mapInstance.current) {
+        mapInstance.current.remove();
+        mapInstance.current = null;
+      }
     };
   }, []);
 
