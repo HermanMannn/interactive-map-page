@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { mapEvents } from "../lib/mapEvents";
-import EventDetails from "./EventDetails.jsx";
+import EventDetails from "@/components/EventDetails";
 
 const DEFAULT = { lat: 31.9, lng: 35.2, zoom: 9 };
 
