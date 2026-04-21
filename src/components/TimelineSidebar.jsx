@@ -149,7 +149,7 @@ export default function TimelineSidebar() {
                     <button
                       type="button"
                       key={event.title}
-                      onClick={() => mapEvents.flyTo(event.coords ?? GAZA)}
+                      onClick={() => mapEvents.flyTo(event.coords ?? DEFAULT)}
                       className="w-full text-left flex items-center gap-1.5 cursor-pointer hover:bg-accent/30 rounded px-1 py-0.5 transition-colors"
                     >
                       <span
