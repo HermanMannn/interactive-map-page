@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { mapEvents } from "../lib/mapEvents";
 
-// Default coordinates point to Gaza until each event gets its own location.
-const GAZA = { lat: 31.5017, lng: 34.4668, zoom: 11 };
+const DEFAULT = { lat: 31.9, lng: 35.2, zoom: 9 };
 
 const timelineData = [
   {
@@ -14,15 +13,23 @@ const timelineData = [
           {
             title: "UN General Assembly Resolution 181",
             type: "resolution",
-            coords: GAZA,
+            coords: { lat: 40.7128, lng: -74.006, zoom: 5 }, // New York, USA
           },
         ],
       },
       {
         month: "December",
         events: [
-          { title: "Oil Refinery Massacre", type: "massacre" },
-          { title: "Balad Al-Sheykh Massacre", type: "massacre" },
+          {
+            title: "Haifa Oil Refinery Massacre",
+            type: "massacre",
+            coords: { lat: 32.7940, lng: 35.0423, zoom: 12 }, // Haifa
+          },
+          {
+            title: "Balad Al-Shaykh Massacre",
+            type: "massacre",
+            coords: { lat: 32.7667, lng: 35.0500, zoom: 13 }, // Balad Al-Shaykh
+          },
         ],
       },
     ],
@@ -32,47 +39,38 @@ const timelineData = [
     months: [
       {
         month: "February",
-        events: [{ title: "Khirbat Sa'Sa' Massacre", type: "massacre" }],
+        events: [
+          {
+            title: "Khirbat Sa'sa' Massacre",
+            type: "massacre",
+            coords: { lat: 33.0333, lng: 35.3833, zoom: 13 }, // Sa'sa' village
+          },
+        ],
       },
       {
         month: "March",
         events: [
-          { title: "Najmat Al-Subuh Battle", type: "battle" },
-          { title: "Al-Husayniah Massacre", type: "massacre" },
+          {
+            title: "al-Husayniyah Massacre",
+            type: "massacre",
+            coords: { lat: 33.0167, lng: 35.5000, zoom: 13 }, // al-Husayniyah, Safad
+          },
+          {
+            title: "Cairo-Haifa Train Bombings",
+            type: "battle",
+            coords: { lat: 31.8947, lng: 34.8094, zoom: 11 }, // Rehovot/Binyamina
+          },
         ],
       },
       {
         month: "April",
         events: [
-          { title: "Mishmar Haemek Battle", type: "battle" },
-          { title: "Dayr Yasin Massacre", type: "massacre" },
-          { title: "Tiberias Battle", type: "battle" },
-          { title: "Haifa Battle", type: "battle" },
+          {
+            title: "Mishmar HaEmek Battle",
+            type: "battle",
+            coords: { lat: 32.6167, lng: 35.1500, zoom: 12 }, // Mishmar HaEmek
+          },
         ],
-      },
-      {
-        month: "May",
-        events: [
-          { title: "Declaration of State of Israel", type: "other" },
-          { title: "Tantura Massacre", type: "massacre" },
-          { title: "Lydda Massacre", type: "massacre" },
-        ],
-      },
-      {
-        month: "October",
-        events: [
-          { title: "Al-Dawayima Massacre", type: "massacre" },
-          { title: "Safsaf Massacre", type: "massacre" },
-        ],
-      },
-    ],
-  },
-  {
-    year: 1949,
-    months: [
-      {
-        month: "March",
-        events: [{ title: "Armistice Agreements", type: "other" }],
       },
     ],
   },
