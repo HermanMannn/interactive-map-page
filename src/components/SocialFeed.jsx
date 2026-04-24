@@ -55,8 +55,19 @@ const initialPosts = [
 ];
 
 export default function SocialFeed() {
-  const [posts] = useState(initialPosts);
+  const [posts, setPosts] = useState(initialPosts);
+  const [liked, setLiked] = useState({});
   const [draft, setDraft] = useState("");
+
+  const toggleLike = (id) => {
+    const isLiked = !!liked[id];
+    setLiked((prev) => ({ ...prev, [id]: !isLiked }));
+    setPosts((prev) =>
+      prev.map((p) =>
+        p.id === id ? { ...p, likes: p.likes + (isLiked ? -1 : 1) } : p
+      )
+    );
+  };
 
   return (
     <div className="absolute inset-0 right-14 overflow-y-auto bg-gradient-to-b from-secondary/50 to-background">
@@ -171,8 +182,19 @@ export default function SocialFeed() {
             </div>
 
             <div className="flex items-center justify-around border-t border-border px-2 py-1">
-              <button className="flex flex-1 items-center justify-center gap-2 rounded-md py-2 text-sm font-medium text-muted-foreground hover:bg-accent/40 hover:text-primary">
-                <Heart className="h-4 w-4" /> Like
+              <button
+                onClick={() => toggleLike(post.id)}
+                className={`flex flex-1 items-center justify-center gap-2 rounded-md py-2 text-sm font-medium transition-colors hover:bg-accent/40 ${
+                  liked[post.id]
+                    ? "text-red-500 hover:text-red-500"
+                    : "text-muted-foreground hover:text-primary"
+                }`}
+              >
+                <Heart
+                  className="h-4 w-4"
+                  fill={liked[post.id] ? "currentColor" : "none"}
+                />{" "}
+                Like
               </button>
               <button className="flex flex-1 items-center justify-center gap-2 rounded-md py-2 text-sm font-medium text-muted-foreground hover:bg-accent/40 hover:text-primary">
                 <MessageCircle className="h-4 w-4" /> Comment
