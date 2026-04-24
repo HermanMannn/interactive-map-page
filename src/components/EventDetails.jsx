@@ -51,6 +51,14 @@ export default function EventDetails({ event, onClose }) {
         </button>
       </div>
 
+      {event.image && (
+        <img
+          src={event.image}
+          alt={event.title}
+          className="w-full h-44 object-cover border-b border-border"
+        />
+      )}
+
       <div className="p-4 space-y-4">
         <div className="flex flex-wrap gap-1.5">
           <span className={`text-xs font-medium px-2 py-0.5 rounded ${getCategoryClass(event.category)}`}>
