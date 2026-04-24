@@ -5,7 +5,7 @@ const tools = [
   { icon: Home, label: "Home", to: "/timeline" },
   { icon: Calendar, label: "Community", to: "/social" },
   { icon: Grid3X3, label: "Grid", to: "/timeline" },
-  { icon: MessageSquare, label: "Messages", to: "/timeline" },
+  { icon: MessageSquare, label: "Messages", to: "/messages" },
   { icon: Settings, label: "Settings", to: "/timeline" },
   { icon: LogOut, label: "Logout", to: "/" },
 ];
