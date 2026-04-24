@@ -49,7 +49,7 @@ export default function Signup() {
     // Success message
     setSuccess('Account created successfully! Redirecting...')
     setTimeout(() => {
-      navigate({ to: '/timeline' })
+      navigate({ to: '/' })
     }, 1500)
   }
 
@@ -96,7 +96,7 @@ export default function Signup() {
               </label>
               <input
                 type="text"
-                name="username"
+                name="usernamesq"
                 value={formData.username}
                 onChange={handleChange}
                 style={{
