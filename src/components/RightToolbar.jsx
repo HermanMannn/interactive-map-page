@@ -1,12 +1,13 @@
 import { Link } from "@tanstack/react-router";
-import { Home, Calendar, Grid3X3, MessageSquare, Settings } from "lucide-react";
+import { Home, Calendar, Grid3X3, MessageSquare, Settings, LogOut } from "lucide-react";
 
 const tools = [
-  { icon: Home, label: "Home", to: "/" },
+  { icon: Home, label: "Home", to: "/timeline" },
   { icon: Calendar, label: "Community", to: "/social" },
   { icon: Grid3X3, label: "Grid", to: "/timeline" },
   { icon: MessageSquare, label: "Messages", to: "/timeline" },
   { icon: Settings, label: "Settings", to: "/timeline" },
+  { icon: LogOut, label: "Logout", to: "/" },
 ];
 
 export default function RightToolbar() {
