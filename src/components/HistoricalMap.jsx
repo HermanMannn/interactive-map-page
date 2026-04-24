@@ -22,9 +22,10 @@ export default function HistoricalMap() {
         attributionControl: false,
       });
 
+      // CartoDB Voyager — English-only labels, no Hebrew
       L.tileLayer(
-        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
-        { maxZoom: 18 }
+        "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
+        { maxZoom: 19, subdomains: "abcd" }
       ).addTo(map);
 
       L.control.zoom({ position: "bottomright" }).addTo(map);

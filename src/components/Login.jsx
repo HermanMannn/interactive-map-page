@@ -1,11 +1,20 @@
+import { useState } from 'react'
 import { useNavigate } from '@tanstack/react-router'
 
 export default function Login() {
   const navigate = useNavigate()
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
 
   const handleLogin = (e) => {
     e.preventDefault()
-    navigate({ to: '/timeline' })
+    if (username === 'admin@admin.com' && password === 'admin') {
+      setError('')
+      navigate({ to: '/timeline' })
+    } else {
+      setError('Invalid username or password')
+    }
   }
 
   return (
@@ -51,6 +60,8 @@ export default function Login() {
               </label>
               <input
                 type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 style={{
                   width: '100%',
                   boxSizing: 'border-box',
@@ -70,6 +81,8 @@ export default function Login() {
               </label>
               <input
                 type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 style={{
                   width: '100%',
                   boxSizing: 'border-box',
@@ -81,6 +94,20 @@ export default function Login() {
                 }}
               />
             </div>
+
+            {error && (
+              <div style={{
+                background: '#fdecea',
+                color: '#c0392b',
+                padding: '8px 12px',
+                borderRadius: '6px',
+                fontSize: '13px',
+                marginBottom: '14px',
+                textAlign: 'left',
+              }}>
+                {error}
+              </div>
+            )}
 
             {/* Login Button */}
             <button type="submit" style={{
