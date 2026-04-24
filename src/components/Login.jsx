@@ -166,7 +166,10 @@ export default function Login() {
           {/* Sign Up */}
           <p style={{ fontSize: '14px', color: '#c0392b', margin: 0 }}>
             Don't have an account?{' '}
-            <a href="/signup" style={{ color: '#c0392b', fontWeight: 700, textDecoration: 'none' }}>
+            <a
+              onClick={() => navigate({ to: '/signup' })}
+              style={{ color: '#c0392b', fontWeight: 700, textDecoration: 'none', cursor: 'pointer' }}
+            >
               Sign up here
             </a>
           </p>
