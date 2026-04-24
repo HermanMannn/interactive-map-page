@@ -6,6 +6,52 @@ const DEFAULT = { lat: 31.9, lng: 35.2, zoom: 9 };
 
 const timelineData = [
   {
+    year: 1917,
+    months: [
+      {
+        month: "November",
+        events: [
+          {
+            title: "Balfour Declaration",
+            type: "resolution",
+            coords: { lat: 51.5074, lng: -0.1278, zoom: 5 },
+            location: "London, UK (Impacting Palestine)",
+            startDate: "02/11/1917",
+            endDate: "02/11/1917",
+            category: "Diplomatic",
+            tags: ["High Impact", "National", "Crisis"],
+            status: "Concluded",
+            description:
+              'A public statement issued by the British government during WWI announcing support for the establishment of a "national home for the Jewish people" in Palestine, setting the stage for decades of geopolitical shifts and demographic changes.',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    year: 1936,
+    months: [
+      {
+        month: "April",
+        events: [
+          {
+            title: "The Great Arab Revolt",
+            type: "battle",
+            coords: { lat: 31.9, lng: 35.2, zoom: 8 },
+            location: "Palestine (General)",
+            startDate: "19/04/1936",
+            endDate: "26/08/1939",
+            category: "Political",
+            tags: ["High Impact", "Revolution", "National", "Conflict"],
+            status: "Concluded",
+            description:
+              "A massive nationalist uprising by Palestinian Arabs against the British administration, demanding independence and an end to open-ended Jewish immigration and land purchases. It deeply shaped Palestinian national identity and British policy.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     year: 1947,
     months: [
       {
@@ -92,7 +138,7 @@ const timelineData = [
             endDate: "16/03/1948",
             category: "Military",
             tags: ["Local", "Conflict"],
-            status: "Ongoing",
+            status: "Concluded",
             description:
               "Palmach forces attacked the village of al-Husayniyah in the Safad subdistrict, destroying homes and resulting in the deaths of dozens of Palestinian villagers.",
           },
@@ -123,9 +169,91 @@ const timelineData = [
             endDate: "15/04/1948",
             category: "Military",
             tags: ["Regional", "Conflict"],
-            status: "Ongoing",
+            status: "Concluded",
             description:
               "The Arab Liberation Army launched an offensive against Mishmar HaEmek but was repelled by Haganah forces. The subsequent counter-offensive led to the depopulation of several surrounding Palestinian villages.",
+          },
+        ],
+      },
+      {
+        month: "May",
+        events: [
+          {
+            title: "Qadas Battle",
+            type: "battle",
+            coords: { lat: 33.1064, lng: 35.4711, zoom: 12 },
+            location: "Qadas, Safad, Palestine",
+            startDate: "14/05/1948",
+            endDate: "15/05/1948",
+            category: "Military",
+            tags: ["Regional", "Conflict"],
+            status: "Concluded",
+            description:
+              "A significant engagement near the Lebanese border during Operation Yiftach, detailed in the oral history of 'Ali Sa'id al-Mughrabi. Palmach forces captured the village on the night of May 14, 1948. However, Lebanese units crossed the border and mounted a heavy counteroffensive the next day, temporarily forcing the Zionist forces to withdraw.",
+          },
+        ],
+      },
+      {
+        month: "December",
+        events: [
+          {
+            title: "UN General Assembly Resolution 194",
+            type: "resolution",
+            coords: { lat: 40.7128, lng: -74.006, zoom: 5 },
+            location: "New York, USA",
+            startDate: "11/12/1948",
+            endDate: "11/12/1948",
+            category: "Diplomatic",
+            tags: ["Reform", "High Impact", "National"],
+            status: "Concluded",
+            description:
+              "Adopted near the end of the 1948 war, this resolution established the Conciliation Commission for Palestine. Most notably, Article 11 declared that refugees wishing to return to their homes and live at peace should be permitted to do so, laying the foundational international legal basis for the Palestinian Right of Return.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    year: 1967,
+    months: [
+      {
+        month: "June",
+        events: [
+          {
+            title: "The Naksa (Six-Day War)",
+            type: "battle",
+            coords: { lat: 31.9, lng: 35.2, zoom: 7 },
+            location: "Palestine (General)",
+            startDate: "05/06/1967",
+            endDate: "10/06/1967",
+            category: "Military",
+            tags: ["High Impact", "Regional", "Conflict", "Crisis"],
+            status: "Concluded",
+            description:
+              "A brief but profoundly impactful war resulting in Israel occupying the West Bank, East Jerusalem, and the Gaza Strip. This event drastically redrew the map of control in the region and led to a second massive wave of Palestinian displacement.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    year: 1987,
+    months: [
+      {
+        month: "December",
+        events: [
+          {
+            title: "First Intifada",
+            type: "battle",
+            coords: { lat: 31.9, lng: 35.2, zoom: 8 },
+            location: "West Bank and Gaza Strip",
+            startDate: "08/12/1987",
+            endDate: "13/09/1993",
+            category: "Social",
+            tags: ["Revolution", "National", "Conflict"],
+            status: "Concluded",
+            description:
+              "A sustained series of Palestinian protests and civil disobedience against the Israeli occupation of the West Bank and Gaza. It shifted the global conversation and led to significant grassroots mobilization.",
           },
         ],
       },
