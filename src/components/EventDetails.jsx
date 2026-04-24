@@ -17,6 +17,8 @@ function getCategoryClass(category) {
       return "bg-orange-400/20 text-orange-700 dark:text-orange-400";
     case "Diplomatic":
       return "bg-blue-400/20 text-blue-700 dark:text-blue-400";
+    case "Social":
+      return "bg-sky-400/20 text-sky-700 dark:text-sky-400";
     default:
       return "bg-muted text-muted-foreground";
   }
