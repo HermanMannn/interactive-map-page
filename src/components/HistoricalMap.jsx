@@ -16,15 +16,16 @@ export default function HistoricalMap() {
       if (cancelled || !mapRef.current || mapInstance.current) return;
 
       map = L.map(mapRef.current, {
-        center: [31.9, 35.2],
-        zoom: 10,
+        center: [31.5, 35.0],
+        zoom: 8,
         zoomControl: false,
         attributionControl: false,
       });
 
+      const tomtomKey = import.meta.env.VITE_TOMTOM_API_KEY;
       L.tileLayer(
-        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
-        { maxZoom: 18 }
+        `https://api.tomtom.com/map/1/tile/basic/main/{z}/{x}/{y}.png?key=${tomtomKey}`,
+        { maxZoom: 22 }
       ).addTo(map);
 
       L.control.zoom({ position: "bottomright" }).addTo(map);
