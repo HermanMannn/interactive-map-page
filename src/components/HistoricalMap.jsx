@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "leaflet/dist/leaflet.css";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { mapEvents } from "../lib/mapEvents";
@@ -6,6 +6,7 @@ import { mapEvents } from "../lib/mapEvents";
 export default function HistoricalMap() {
   const mapRef = useRef(null);
   const mapInstance = useRef(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     let map;
@@ -85,7 +86,10 @@ export default function HistoricalMap() {
       mapInstance.current = map;
 
       // Ensure Leaflet measures the container correctly after mount.
-      setTimeout(() => map.invalidateSize(), 0);
+      setTimeout(() => {
+        map.invalidateSize();
+        if (!cancelled) setLoading(false);
+      }, 0);
 
       let marker = null;
       let circle = null;
@@ -118,10 +122,17 @@ export default function HistoricalMap() {
   }, []);
 
   return (
-    <div
-      ref={mapRef}
-      className="absolute inset-0 z-0"
-      style={{ width: "100%", height: "100%" }}
-    />
+    <>
+      <div
+        ref={mapRef}
+        className="absolute inset-0 z-0"
+        style={{ width: "100%", height: "100%" }}
+      />
+      {loading && (
+        <div className="absolute inset-0 z-10 flex items-center justify-center bg-background/60 backdrop-blur-sm pointer-events-none">
+          <span className="text-sm text-muted-foreground">Loading...</span>
+        </div>
+      )}
+    </>
   );
 }
