@@ -86,7 +86,10 @@ export default function HistoricalMap() {
       mapInstance.current = map;
 
       // Ensure Leaflet measures the container correctly after mount.
-      setTimeout(() => map.invalidateSize(), 0);
+      setTimeout(() => {
+        map.invalidateSize();
+        if (!cancelled) setLoading(false);
+      }, 0);
 
       let marker = null;
       let circle = null;
