@@ -73,8 +73,23 @@ export default function HistoricalMap() {
       // Ensure Leaflet measures the container correctly after mount.
       setTimeout(() => map.invalidateSize(), 0);
 
+      let marker = null;
+      let circle = null;
+
       unsub = mapEvents.subscribe(({ lat, lng, zoom }) => {
         map.flyTo([lat, lng], zoom ?? 11, { duration: 1.5 });
+
+        if (marker) marker.remove();
+        if (circle) circle.remove();
+
+        marker = L.marker([lat, lng]).addTo(map);
+        circle = L.circle([lat, lng], {
+          radius: 4000, // 4 km
+          color: "#ef4444",
+          weight: 1,
+          fillColor: "#ef4444",
+          fillOpacity: 0.25,
+        }).addTo(map);
       });
     })();
 
