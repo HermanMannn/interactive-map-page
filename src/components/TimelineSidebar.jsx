@@ -222,7 +222,7 @@ const timelineData = [
           {
             title: "The Naksa (Six-Day War)",
             type: "battle",
-            coords: { lat: 31.9, lng: 35.2, zoom: 7 },
+            coords: { lat: 31.9, lng: 35.2, zoom: 10 },
             location: "Palestine (General)",
             startDate: "05/06/1967",
             endDate: "10/06/1967",
@@ -245,7 +245,7 @@ const timelineData = [
           {
             title: "First Intifada",
             type: "battle",
-            coords: { lat: 31.9, lng: 35.2, zoom: 8 },
+            coords: { lat: 31.9, lng: 35.2, zoom: 10 },
             location: "West Bank and Gaza Strip",
             startDate: "08/12/1987",
             endDate: "13/09/1993",
