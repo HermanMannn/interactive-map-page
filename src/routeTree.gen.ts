@@ -9,12 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WordleRouteImport } from './routes/wordle'
 import { Route as TimelineRouteImport } from './routes/timeline'
 import { Route as SocialRouteImport } from './routes/social'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as MessagesRouteImport } from './routes/messages'
 import { Route as IndexRouteImport } from './routes/index'
 
+const WordleRoute = WordleRouteImport.update({
+  id: '/wordle',
+  path: '/wordle',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TimelineRoute = TimelineRouteImport.update({
   id: '/timeline',
   path: '/timeline',
@@ -47,6 +53,7 @@ export interface FileRoutesByFullPath {
   '/signup': typeof SignupRoute
   '/social': typeof SocialRoute
   '/timeline': typeof TimelineRoute
+  '/wordle': typeof WordleRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +61,7 @@ export interface FileRoutesByTo {
   '/signup': typeof SignupRoute
   '/social': typeof SocialRoute
   '/timeline': typeof TimelineRoute
+  '/wordle': typeof WordleRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,13 +70,21 @@ export interface FileRoutesById {
   '/signup': typeof SignupRoute
   '/social': typeof SocialRoute
   '/timeline': typeof TimelineRoute
+  '/wordle': typeof WordleRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/messages' | '/signup' | '/social' | '/timeline'
+  fullPaths: '/' | '/messages' | '/signup' | '/social' | '/timeline' | '/wordle'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/messages' | '/signup' | '/social' | '/timeline'
-  id: '__root__' | '/' | '/messages' | '/signup' | '/social' | '/timeline'
+  to: '/' | '/messages' | '/signup' | '/social' | '/timeline' | '/wordle'
+  id:
+    | '__root__'
+    | '/'
+    | '/messages'
+    | '/signup'
+    | '/social'
+    | '/timeline'
+    | '/wordle'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -77,10 +93,18 @@ export interface RootRouteChildren {
   SignupRoute: typeof SignupRoute
   SocialRoute: typeof SocialRoute
   TimelineRoute: typeof TimelineRoute
+  WordleRoute: typeof WordleRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/wordle': {
+      id: '/wordle'
+      path: '/wordle'
+      fullPath: '/wordle'
+      preLoaderRoute: typeof WordleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/timeline': {
       id: '/timeline'
       path: '/timeline'
@@ -125,6 +149,7 @@ const rootRouteChildren: RootRouteChildren = {
   SignupRoute: SignupRoute,
   SocialRoute: SocialRoute,
   TimelineRoute: TimelineRoute,
+  WordleRoute: WordleRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
