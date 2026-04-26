@@ -29,11 +29,35 @@ export default function HistoricalMap() {
       });
 
       if (typeof L.maplibreGL === "function") {
-        L.maplibreGL({
+        const glLayer = L.maplibreGL({
           style: "https://tiles.openfreemap.org/styles/liberty",
           attribution:
             '© <a href="https://openfreemap.org">OpenFreeMap</a> © OpenStreetMap',
         }).addTo(map);
+
+        // Force all label layers to English ("name:en"), falling back to "name".
+        const forceEnglishLabels = () => {
+          const glMap = glLayer.getMaplibreMap?.();
+          if (!glMap) return;
+          const style = glMap.getStyle();
+          if (!style?.layers) return;
+          for (const layer of style.layers) {
+            if (layer.type === "symbol" && layer.layout?.["text-field"]) {
+              glMap.setLayoutProperty(layer.id, "text-field", [
+                "coalesce",
+                ["get", "name:en"],
+                ["get", "name_en"],
+                ["get", "name:latin"],
+                ["get", "name"],
+              ]);
+            }
+          }
+        };
+        const glMap = glLayer.getMaplibreMap?.();
+        if (glMap) {
+          if (glMap.isStyleLoaded()) forceEnglishLabels();
+          else glMap.on("styledata", forceEnglishLabels);
+        }
       } else {
         // Fallback to raster tiles if the GL plugin failed to attach.
         L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
