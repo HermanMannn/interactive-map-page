@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "leaflet/dist/leaflet.css";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { mapEvents } from "../lib/mapEvents";
@@ -6,6 +6,7 @@ import { mapEvents } from "../lib/mapEvents";
 export default function HistoricalMap() {
   const mapRef = useRef(null);
   const mapInstance = useRef(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     let map;
