@@ -42,14 +42,21 @@ export default function HistoricalMap() {
             '© <a href="https://openfreemap.org">OpenFreeMap</a> © OpenStreetMap',
         }).addTo(map);
 
-        // Force all label layers to English ("name:en"), falling back to "name".
-        const forceEnglishLabels = () => {
+        // Force English labels and hide country-name labels.
+        const applyLabelRules = () => {
           const glMap = glLayer.getMaplibreMap?.();
           if (!glMap) return;
           const style = glMap.getStyle();
           if (!style?.layers) return;
           for (const layer of style.layers) {
-            if (layer.type === "symbol" && layer.layout?.["text-field"]) {
+            if (layer.type !== "symbol") continue;
+            const id = layer.id.toLowerCase();
+            // Hide any country-level label layer.
+            if (id.includes("country")) {
+              glMap.setLayoutProperty(layer.id, "visibility", "none");
+              continue;
+            }
+            if (layer.layout?.["text-field"]) {
               glMap.setLayoutProperty(layer.id, "text-field", [
                 "coalesce",
                 ["get", "name:en"],
@@ -62,8 +69,8 @@ export default function HistoricalMap() {
         };
         const glMap = glLayer.getMaplibreMap?.();
         if (glMap) {
-          if (glMap.isStyleLoaded()) forceEnglishLabels();
-          else glMap.on("styledata", forceEnglishLabels);
+          if (glMap.isStyleLoaded()) applyLabelRules();
+          else glMap.on("styledata", applyLabelRules);
         }
       } else {
         // Fallback to raster tiles if the GL plugin failed to attach.
