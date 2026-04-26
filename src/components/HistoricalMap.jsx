@@ -122,10 +122,17 @@ export default function HistoricalMap() {
   }, []);
 
   return (
-    <div
-      ref={mapRef}
-      className="absolute inset-0 z-0"
-      style={{ width: "100%", height: "100%" }}
-    />
+    <>
+      <div
+        ref={mapRef}
+        className="absolute inset-0 z-0"
+        style={{ width: "100%", height: "100%" }}
+      />
+      {loading && (
+        <div className="absolute inset-0 z-10 flex items-center justify-center bg-background/60 backdrop-blur-sm pointer-events-none">
+          <span className="text-sm text-muted-foreground">Loading...</span>
+        </div>
+      )}
+    </>
   );
 }
