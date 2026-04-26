@@ -19,6 +19,13 @@ export default function HistoricalMap() {
       await import("maplibre-gl");
       await import("@maplibre/maplibre-gl-leaflet");
 
+      // Fix Leaflet's default marker icon paths (broken under Vite bundling).
+      const iconRetinaUrl = (await import("leaflet/dist/images/marker-icon-2x.png")).default;
+      const iconUrl = (await import("leaflet/dist/images/marker-icon.png")).default;
+      const shadowUrl = (await import("leaflet/dist/images/marker-shadow.png")).default;
+      delete L.Icon.Default.prototype._getIconUrl;
+      L.Icon.Default.mergeOptions({ iconRetinaUrl, iconUrl, shadowUrl });
+
       if (cancelled || !mapRef.current || mapInstance.current) return;
 
       map = L.map(mapRef.current, {
