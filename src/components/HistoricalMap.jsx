@@ -19,6 +19,13 @@ export default function HistoricalMap() {
       await import("maplibre-gl");
       await import("@maplibre/maplibre-gl-leaflet");
 
+      // Fix Leaflet's default marker icon paths (broken under Vite bundling).
+      const iconRetinaUrl = (await import("leaflet/dist/images/marker-icon-2x.png")).default;
+      const iconUrl = (await import("leaflet/dist/images/marker-icon.png")).default;
+      const shadowUrl = (await import("leaflet/dist/images/marker-shadow.png")).default;
+      delete L.Icon.Default.prototype._getIconUrl;
+      L.Icon.Default.mergeOptions({ iconRetinaUrl, iconUrl, shadowUrl });
+
       if (cancelled || !mapRef.current || mapInstance.current) return;
 
       map = L.map(mapRef.current, {
@@ -73,8 +80,23 @@ export default function HistoricalMap() {
       // Ensure Leaflet measures the container correctly after mount.
       setTimeout(() => map.invalidateSize(), 0);
 
+      let marker = null;
+      let circle = null;
+
       unsub = mapEvents.subscribe(({ lat, lng, zoom }) => {
         map.flyTo([lat, lng], zoom ?? 11, { duration: 1.5 });
+
+        if (marker) marker.remove();
+        if (circle) circle.remove();
+
+        marker = L.marker([lat, lng]).addTo(map);
+        circle = L.circle([lat, lng], {
+          radius: 4000, // 4 km
+          color: "#ef4444",
+          weight: 1,
+          fillColor: "#ef4444",
+          fillOpacity: 0.25,
+        }).addTo(map);
       });
     })();
 
