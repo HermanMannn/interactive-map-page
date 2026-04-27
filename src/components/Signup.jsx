@@ -96,7 +96,7 @@ export default function Signup() {
               </label>
               <input
                 type="text"
-                name="usernamesq"
+                name="username"
                 value={formData.username}
                 onChange={handleChange}
                 style={{
