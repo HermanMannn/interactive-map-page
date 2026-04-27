@@ -14,6 +14,7 @@ import { Route as TimelineRouteImport } from './routes/timeline'
 import { Route as SocialRouteImport } from './routes/social'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as MessagesRouteImport } from './routes/messages'
+import { Route as DonateRouteImport } from './routes/donate'
 import { Route as IndexRouteImport } from './routes/index'
 
 const WordleRoute = WordleRouteImport.update({
@@ -41,6 +42,11 @@ const MessagesRoute = MessagesRouteImport.update({
   path: '/messages',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DonateRoute = DonateRouteImport.update({
+  id: '/donate',
+  path: '/donate',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -49,6 +55,7 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/donate': typeof DonateRoute
   '/messages': typeof MessagesRoute
   '/signup': typeof SignupRoute
   '/social': typeof SocialRoute
@@ -57,6 +64,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/donate': typeof DonateRoute
   '/messages': typeof MessagesRoute
   '/signup': typeof SignupRoute
   '/social': typeof SocialRoute
@@ -66,6 +74,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/donate': typeof DonateRoute
   '/messages': typeof MessagesRoute
   '/signup': typeof SignupRoute
   '/social': typeof SocialRoute
@@ -74,12 +83,27 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/messages' | '/signup' | '/social' | '/timeline' | '/wordle'
+  fullPaths:
+    | '/'
+    | '/donate'
+    | '/messages'
+    | '/signup'
+    | '/social'
+    | '/timeline'
+    | '/wordle'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/messages' | '/signup' | '/social' | '/timeline' | '/wordle'
+  to:
+    | '/'
+    | '/donate'
+    | '/messages'
+    | '/signup'
+    | '/social'
+    | '/timeline'
+    | '/wordle'
   id:
     | '__root__'
     | '/'
+    | '/donate'
     | '/messages'
     | '/signup'
     | '/social'
@@ -89,6 +113,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DonateRoute: typeof DonateRoute
   MessagesRoute: typeof MessagesRoute
   SignupRoute: typeof SignupRoute
   SocialRoute: typeof SocialRoute
@@ -133,6 +158,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MessagesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/donate': {
+      id: '/donate'
+      path: '/donate'
+      fullPath: '/donate'
+      preLoaderRoute: typeof DonateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -145,6 +177,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DonateRoute: DonateRoute,
   MessagesRoute: MessagesRoute,
   SignupRoute: SignupRoute,
   SocialRoute: SocialRoute,
@@ -154,3 +187,12 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}
