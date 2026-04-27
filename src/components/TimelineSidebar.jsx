@@ -23,6 +23,10 @@ const timelineData = [
             status: "Concluded",
             description:
               "At the Battle of Marj Dabiq, Ottoman Sultan Selim I defeated the Mamluk Sultanate, bringing Palestine under Ottoman rule. This began four centuries of Ottoman administration over the region, shaping its governance, demographics, and religious institutions until WWI.",
+            articles: [
+              { title: "Battle of Marj Dabiq — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Marj_Dabiq" },
+              { title: "Ottoman Syria — Wikipedia", url: "https://en.wikipedia.org/wiki/Ottoman_Syria" },
+            ],
           },
         ],
       },
@@ -46,6 +50,10 @@ const timelineData = [
             status: "Concluded",
             description:
               "Napoleon Bonaparte's French army besieged the Ottoman-held coastal city of Acre as part of his Egyptian campaign. Defended by Ahmad Pasha al-Jazzar with British naval support, the city held out for over two months, forcing Napoleon's first major defeat and his retreat from the Levant.",
+            articles: [
+              { title: "Siege of Acre (1799) — Wikipedia", url: "https://en.wikipedia.org/wiki/Siege_of_Acre_(1799)" },
+              { title: "Napoleon's invasion of Egypt and Syria — Britannica", url: "https://www.britannica.com/event/French-campaign-in-Egypt-and-Syria" },
+            ],
           },
         ],
       },
@@ -69,6 +77,9 @@ const timelineData = [
             status: "Concluded",
             description:
               "A widespread Arab uprising against the conscription and taxation policies of the Egyptian ruler Ibrahim Pasha, who controlled Palestine from 1831–1840. The revolt spread across Jerusalem, Hebron, Nablus, and Galilee, and is considered one of the earliest large-scale expressions of Palestinian collective political action.",
+            articles: [
+              { title: "Peasants' revolt in Palestine — Wikipedia", url: "https://en.wikipedia.org/wiki/Peasants%27_revolt_in_Palestine" },
+            ],
           },
         ],
       },
@@ -92,6 +103,10 @@ const timelineData = [
             status: "Concluded",
             description:
               "The First Aliyah marked the beginning of large-scale Zionist Jewish immigration to Ottoman Palestine, with around 25,000–35,000 immigrants — mostly from the Russian Empire and Yemen — arriving between 1882 and 1903. Settlements such as Rishon LeZion and Petah Tikva were established, marking the start of organized Zionist colonization.",
+            articles: [
+              { title: "First Aliyah — Wikipedia", url: "https://en.wikipedia.org/wiki/First_Aliyah" },
+              { title: "Aliyah — Jewish Virtual Library", url: "https://www.jewishvirtuallibrary.org/aliyah-immigration-to-israel" },
+            ],
           },
         ],
       },
@@ -115,6 +130,10 @@ const timelineData = [
             status: "Concluded",
             description:
               "Convened by Theodor Herzl, the First Zionist Congress in Basel established the World Zionist Organization and adopted the Basel Program, which sought to create 'a home for the Jewish people in Palestine secured under public law.' This formalized political Zionism as a movement.",
+            articles: [
+              { title: "First Zionist Congress — Wikipedia", url: "https://en.wikipedia.org/wiki/First_Zionist_Congress" },
+              { title: "Theodor Herzl and the Basel Program — Britannica", url: "https://www.britannica.com/topic/Zionism" },
+            ],
           },
         ],
       },
@@ -138,6 +157,9 @@ const timelineData = [
             status: "Concluded",
             description:
               "Sixty-six Jewish families gathered on the sand dunes north of Jaffa to allocate plots for a new neighborhood, originally called Ahuzat Bayit. It was renamed Tel Aviv in 1910 and became the first modern all-Jewish city in Palestine, growing rapidly during subsequent decades of immigration.",
+            articles: [
+              { title: "History of Tel Aviv — Wikipedia", url: "https://en.wikipedia.org/wiki/History_of_Tel_Aviv" },
+            ],
           },
         ],
       },
@@ -161,6 +183,10 @@ const timelineData = [
             status: "Concluded",
             description:
               "A series of letters between Sharif Hussein of Mecca and British High Commissioner in Egypt Sir Henry McMahon, in which Britain pledged to support Arab independence — including Palestine, in Arab interpretation — in exchange for an Arab revolt against the Ottoman Empire. The promises were later contradicted by the Sykes–Picot Agreement and the Balfour Declaration.",
+            articles: [
+              { title: "McMahon–Hussein Correspondence — Wikipedia", url: "https://en.wikipedia.org/wiki/McMahon%E2%80%93Hussein_Correspondence" },
+              { title: "The Hussein-McMahon Correspondence — Jewish Virtual Library", url: "https://www.jewishvirtuallibrary.org/the-hussein-mcmahon-correspondence" },
+            ],
           },
         ],
       },
@@ -184,6 +210,10 @@ const timelineData = [
             status: "Concluded",
             description:
               "A secret wartime agreement between Britain and France (with Russian assent) to partition the Ottoman Arab provinces into spheres of influence. Palestine was designated for international administration. When exposed in 1917, it revealed contradictions with promises made to the Arabs and shaped the post-WWI carving of the Middle East.",
+            articles: [
+              { title: "Sykes–Picot Agreement — Wikipedia", url: "https://en.wikipedia.org/wiki/Sykes%E2%80%93Picot_Agreement" },
+              { title: "How the Sykes-Picot Agreement carved up the Middle East — BBC", url: "https://www.bbc.com/news/world-middle-east-36300224" },
+            ],
           },
           {
             title: "Great Arab Revolt Begins",
@@ -197,6 +227,10 @@ const timelineData = [
             status: "Concluded",
             description:
               "Launched by Sharif Hussein of Mecca with British backing, the Arab Revolt aimed to establish an independent Arab state stretching from Aleppo to Aden. Arab forces, alongside the British, helped drive Ottoman forces out of the Hejaz, Transjordan, and Palestine, paving the way for the post-war reorganization of the region.",
+            articles: [
+              { title: "Arab Revolt — Wikipedia", url: "https://en.wikipedia.org/wiki/Arab_Revolt" },
+              { title: "The Arab Revolt, 1916–18 — Imperial War Museum", url: "https://www.iwm.org.uk/history/the-arab-revolt-of-1916" },
+            ],
           },
         ],
       },
@@ -220,6 +254,11 @@ const timelineData = [
             status: "Concluded",
             description:
               'A public statement issued by the British government during WWI announcing support for the establishment of a "national home for the Jewish people" in Palestine, setting the stage for decades of geopolitical shifts and demographic changes.',
+            articles: [
+              { title: "Balfour Declaration — Wikipedia", url: "https://en.wikipedia.org/wiki/Balfour_Declaration" },
+              { title: "Balfour Declaration — Britannica", url: "https://www.britannica.com/event/Balfour-Declaration" },
+              { title: "100 years on: The Balfour Declaration explained — Al Jazeera", url: "https://www.aljazeera.com/news/2018/11/2/more-than-a-century-on-the-balfour-declaration-explained" },
+            ],
           },
         ],
       },
@@ -243,6 +282,10 @@ const timelineData = [
             status: "Concluded",
             description:
               "A massive nationalist uprising by Palestinian Arabs against the British administration, demanding independence and an end to open-ended Jewish immigration and land purchases. It deeply shaped Palestinian national identity and British policy.",
+            articles: [
+              { title: "1936–1939 Arab revolt in Palestine — Wikipedia", url: "https://en.wikipedia.org/wiki/1936%E2%80%931939_Arab_revolt_in_Palestine" },
+              { title: "The Great Revolt of 1936-1939 — Institute for Palestine Studies", url: "https://www.palestine-studies.org/en/node/41961" },
+            ],
           },
         ],
       },
@@ -266,6 +309,10 @@ const timelineData = [
             status: "Concluded",
             description:
               "UN General Assembly Resolution 181 (II), adopted on November 29, 1947, recommended the partition of Mandatory Palestine into independent Arab and Jewish states, with a special international regime for Jerusalem. The plan, which passed with 33 votes in favor, 13 against, and 10 abstentions, sought to divide the territory, with the Jewish community accepting it and the Arab world rejecting it.",
+            articles: [
+              { title: "United Nations Partition Plan — Wikipedia", url: "https://en.wikipedia.org/wiki/United_Nations_Partition_Plan_for_Palestine" },
+              { title: "UN Resolution 181 — UN", url: "https://www.un.org/unispal/document/auto-insert-185393/" },
+            ],
           },
         ],
       },
@@ -284,6 +331,9 @@ const timelineData = [
             status: "Concluded",
             description:
               "A massacre occured in December 30, 1947 in the Haifa Oil Refinery in response to an attack conducted by Irgun terrorists threw two hand grenades at a gathering of Palestinians, resulting in 6 deaths and 42 injured. Palestinian day-labourers entered the complex and attacked Jewish workers, killing 39 and injuring 49, before being halted by the British Army and Palestine Police. Sources confirmed that Palestinian workers in the complex helped the Jews flee and hide from the attackers.",
+            articles: [
+              { title: "Haifa Oil Refinery massacre — Wikipedia", url: "https://en.wikipedia.org/wiki/Haifa_Oil_Refinery_massacre" },
+            ],
           },
           {
             title: "Balad Al-Shaykh Massacre",
@@ -297,6 +347,9 @@ const timelineData = [
             status: "Concluded",
             description:
               "A massacre was conducted by the zionist paramilitary group Haganah in December 31, 1947, targeting Palestinians in the village of Balad Al-Shaykh, killing between 60 and 70 villagers in retaliation to the Haifa Oil Refinery Massacre. This event escalated matters to what would become the 1947-1948 Palestinian Civil War.",
+            articles: [
+              { title: "Balad al-Shaykh massacre — Wikipedia", url: "https://en.wikipedia.org/wiki/Balad_al-Shaykh_massacre" },
+            ],
           },
         ],
       },
@@ -320,6 +373,9 @@ const timelineData = [
             status: "Concluded",
             description:
               "During the 1948 Palestine war, two massacres were perpetrated by Zionist forces in the Palestinian village of Sa'sa'. The first occurred on the night of 14-15 February 1948, when Palmach forces attacked the village killing approximately 60 people.",
+            articles: [
+              { title: "Sa'sa' massacre (1948) — Wikipedia", url: "https://en.wikipedia.org/wiki/Sa%27sa%27_massacre_(1948)" },
+            ],
           },
         ],
       },
@@ -338,6 +394,9 @@ const timelineData = [
             status: "Concluded",
             description:
               "Palmach forces attacked the village of al-Husayniyah in the Safad subdistrict, destroying homes and resulting in the deaths of dozens of Palestinian villagers.",
+            articles: [
+              { title: "Al-Husayniyya — Palestine Remembered", url: "https://www.palestineremembered.com/Safad/al-Husayniyya/index.html" },
+            ],
           },
           {
             title: "Cairo-Haifa Train Bombings",
@@ -351,6 +410,9 @@ const timelineData = [
             status: "Concluded",
             description:
               "During the 1948 Palestine war, on February 29 and again on March 31, the military coaches of the Cairo-Haifa train were mined by the Zionist militant group Lehi. In February 29, the mines killed 28 British soldiers and injured 35 others, and Lehi claimed the attack was in revenge for the Ben Yahuda Street Bombing in Jerusalem. On March 31, Lehi mined the train again, killing 40 Arab civilians and wounding 60.",
+            articles: [
+              { title: "Cairo–Haifa train bombings — Wikipedia", url: "https://en.wikipedia.org/wiki/Cairo%E2%80%93Haifa_train_bombings" },
+            ],
           },
         ],
       },
@@ -369,6 +431,9 @@ const timelineData = [
             status: "Concluded",
             description:
               "The Arab Liberation Army launched an offensive against Mishmar HaEmek but was repelled by Haganah forces. The subsequent counter-offensive led to the depopulation of several surrounding Palestinian villages.",
+            articles: [
+              { title: "Battle of Mishmar HaEmek — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Mishmar_HaEmek" },
+            ],
           },
         ],
       },
@@ -387,6 +452,9 @@ const timelineData = [
             status: "Concluded",
             description:
               "A significant engagement near the Lebanese border during Operation Yiftach, detailed in the oral history of 'Ali Sa'id al-Mughrabi. Palmach forces captured the village on the night of May 14, 1948. However, Lebanese units crossed the border and mounted a heavy counteroffensive the next day, temporarily forcing the Zionist forces to withdraw.",
+            articles: [
+              { title: "Operation Yiftach — Wikipedia", url: "https://en.wikipedia.org/wiki/Operation_Yiftach" },
+            ],
           },
         ],
       },
@@ -405,6 +473,10 @@ const timelineData = [
             status: "Concluded",
             description:
               "Adopted near the end of the 1948 war, this resolution established the Conciliation Commission for Palestine. Most notably, Article 11 declared that refugees wishing to return to their homes and live at peace should be permitted to do so, laying the foundational international legal basis for the Palestinian Right of Return.",
+            articles: [
+              { title: "UN General Assembly Resolution 194 — Wikipedia", url: "https://en.wikipedia.org/wiki/United_Nations_General_Assembly_Resolution_194" },
+              { title: "Resolution 194 — UNRWA", url: "https://www.unrwa.org/content/resolution-194" },
+            ],
           },
         ],
       },
@@ -428,6 +500,11 @@ const timelineData = [
             status: "Concluded",
             description:
               "A brief but profoundly impactful war resulting in Israel occupying the West Bank, East Jerusalem, and the Gaza Strip. This event drastically redrew the map of control in the region and led to a second massive wave of Palestinian displacement.",
+            articles: [
+              { title: "Six-Day War — Wikipedia", url: "https://en.wikipedia.org/wiki/Six-Day_War" },
+              { title: "The Naksa: How Israel occupied the whole of Palestine in 1967 — Al Jazeera", url: "https://www.aljazeera.com/news/2018/6/4/the-naksa-how-israel-occupied-the-whole-of-palestine-in-1967" },
+              { title: "Six-Day War — Britannica", url: "https://www.britannica.com/event/Six-Day-War" },
+            ],
           },
         ],
       },
@@ -451,6 +528,10 @@ const timelineData = [
             status: "Concluded",
             description:
               "A sustained series of Palestinian protests and civil disobedience against the Israeli occupation of the West Bank and Gaza. It shifted the global conversation and led to significant grassroots mobilization.",
+            articles: [
+              { title: "First Intifada — Wikipedia", url: "https://en.wikipedia.org/wiki/First_Intifada" },
+              { title: "The First Intifada, 30 years on — Al Jazeera", url: "https://www.aljazeera.com/news/2017/12/8/the-first-intifada-30-years-on" },
+            ],
           },
         ],
       },
