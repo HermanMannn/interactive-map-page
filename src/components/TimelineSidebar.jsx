@@ -6,6 +6,203 @@ const DEFAULT = { lat: 31.9, lng: 35.2, zoom: 9 };
 
 const timelineData = [
   {
+    year: 1516,
+    months: [
+      {
+        month: "August",
+        events: [
+          {
+            title: "Ottoman Conquest of Palestine",
+            type: "battle",
+            coords: { lat: 36.3833, lng: 36.85, zoom: 7 },
+            location: "Marj Dabiq, near Aleppo",
+            startDate: "24/08/1516",
+            endDate: "24/08/1516",
+            category: "Military",
+            tags: ["High Impact", "Regional", "Conflict"],
+            status: "Concluded",
+            description:
+              "At the Battle of Marj Dabiq, Ottoman Sultan Selim I defeated the Mamluk Sultanate, bringing Palestine under Ottoman rule. This began four centuries of Ottoman administration over the region, shaping its governance, demographics, and religious institutions until WWI.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    year: 1799,
+    months: [
+      {
+        month: "March",
+        events: [
+          {
+            title: "Napoleon's Siege of Acre",
+            type: "battle",
+            coords: { lat: 32.9281, lng: 35.0818, zoom: 11 },
+            location: "Acre (Akka), Palestine",
+            startDate: "20/03/1799",
+            endDate: "21/05/1799",
+            category: "Military",
+            tags: ["High Impact", "Regional", "Conflict"],
+            status: "Concluded",
+            description:
+              "Napoleon Bonaparte's French army besieged the Ottoman-held coastal city of Acre as part of his Egyptian campaign. Defended by Ahmad Pasha al-Jazzar with British naval support, the city held out for over two months, forcing Napoleon's first major defeat and his retreat from the Levant.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    year: 1834,
+    months: [
+      {
+        month: "May",
+        events: [
+          {
+            title: "Peasants' Revolt in Palestine",
+            type: "battle",
+            coords: { lat: 31.7683, lng: 35.2137, zoom: 8 },
+            location: "Palestine (General)",
+            startDate: "01/05/1834",
+            endDate: "04/08/1834",
+            category: "Political",
+            tags: ["Revolution", "National", "Conflict"],
+            status: "Concluded",
+            description:
+              "A widespread Arab uprising against the conscription and taxation policies of the Egyptian ruler Ibrahim Pasha, who controlled Palestine from 1831–1840. The revolt spread across Jerusalem, Hebron, Nablus, and Galilee, and is considered one of the earliest large-scale expressions of Palestinian collective political action.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    year: 1882,
+    months: [
+      {
+        month: "July",
+        events: [
+          {
+            title: "First Aliyah Begins",
+            type: "resolution",
+            coords: { lat: 32.0853, lng: 34.7818, zoom: 9 },
+            location: "Jaffa and surrounding areas, Palestine",
+            startDate: "01/07/1882",
+            endDate: "31/12/1903",
+            category: "Social",
+            tags: ["High Impact", "National"],
+            status: "Concluded",
+            description:
+              "The First Aliyah marked the beginning of large-scale Zionist Jewish immigration to Ottoman Palestine, with around 25,000–35,000 immigrants — mostly from the Russian Empire and Yemen — arriving between 1882 and 1903. Settlements such as Rishon LeZion and Petah Tikva were established, marking the start of organized Zionist colonization.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    year: 1897,
+    months: [
+      {
+        month: "August",
+        events: [
+          {
+            title: "First Zionist Congress",
+            type: "resolution",
+            coords: { lat: 47.5596, lng: 7.5886, zoom: 5 },
+            location: "Basel, Switzerland",
+            startDate: "29/08/1897",
+            endDate: "31/08/1897",
+            category: "Diplomatic",
+            tags: ["High Impact", "National", "Reform"],
+            status: "Concluded",
+            description:
+              "Convened by Theodor Herzl, the First Zionist Congress in Basel established the World Zionist Organization and adopted the Basel Program, which sought to create 'a home for the Jewish people in Palestine secured under public law.' This formalized political Zionism as a movement.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    year: 1909,
+    months: [
+      {
+        month: "April",
+        events: [
+          {
+            title: "Founding of Tel Aviv",
+            type: "resolution",
+            coords: { lat: 32.0853, lng: 34.7818, zoom: 12 },
+            location: "Near Jaffa, Palestine",
+            startDate: "11/04/1909",
+            endDate: "11/04/1909",
+            category: "Social",
+            tags: ["Regional", "National"],
+            status: "Concluded",
+            description:
+              "Sixty-six Jewish families gathered on the sand dunes north of Jaffa to allocate plots for a new neighborhood, originally called Ahuzat Bayit. It was renamed Tel Aviv in 1910 and became the first modern all-Jewish city in Palestine, growing rapidly during subsequent decades of immigration.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    year: 1915,
+    months: [
+      {
+        month: "July",
+        events: [
+          {
+            title: "McMahon–Hussein Correspondence",
+            type: "resolution",
+            coords: { lat: 21.4225, lng: 39.8262, zoom: 4 },
+            location: "Cairo, Egypt and Mecca, Hejaz",
+            startDate: "14/07/1915",
+            endDate: "30/01/1916",
+            category: "Diplomatic",
+            tags: ["High Impact", "Regional", "Reform"],
+            status: "Concluded",
+            description:
+              "A series of letters between Sharif Hussein of Mecca and British High Commissioner in Egypt Sir Henry McMahon, in which Britain pledged to support Arab independence — including Palestine, in Arab interpretation — in exchange for an Arab revolt against the Ottoman Empire. The promises were later contradicted by the Sykes–Picot Agreement and the Balfour Declaration.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    year: 1916,
+    months: [
+      {
+        month: "May",
+        events: [
+          {
+            title: "Sykes–Picot Agreement",
+            type: "resolution",
+            coords: { lat: 48.8566, lng: 2.3522, zoom: 4 },
+            location: "London and Paris (secret agreement)",
+            startDate: "16/05/1916",
+            endDate: "16/05/1916",
+            category: "Diplomatic",
+            tags: ["High Impact", "Regional", "Crisis"],
+            status: "Concluded",
+            description:
+              "A secret wartime agreement between Britain and France (with Russian assent) to partition the Ottoman Arab provinces into spheres of influence. Palestine was designated for international administration. When exposed in 1917, it revealed contradictions with promises made to the Arabs and shaped the post-WWI carving of the Middle East.",
+          },
+          {
+            title: "Great Arab Revolt Begins",
+            type: "battle",
+            coords: { lat: 21.4225, lng: 39.8262, zoom: 5 },
+            location: "Hejaz (Arabian Peninsula)",
+            startDate: "10/06/1916",
+            endDate: "25/10/1918",
+            category: "Military",
+            tags: ["High Impact", "Regional", "Revolution", "Conflict"],
+            status: "Concluded",
+            description:
+              "Launched by Sharif Hussein of Mecca with British backing, the Arab Revolt aimed to establish an independent Arab state stretching from Aleppo to Aden. Arab forces, alongside the British, helped drive Ottoman forces out of the Hejaz, Transjordan, and Palestine, paving the way for the post-war reorganization of the region.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     year: 1917,
     months: [
       {
